@@ -130,9 +130,21 @@ function resetFilter() {
 }
 
 .notams-grid {
-  columns: 4;
+  columns: 1;
   break-inside: avoid;
   gap: 1rem;
+}
+
+@media (min-width: 440px) {
+  .notams-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 850px) {
+  .notams-grid {
+    columns: 4;
+  }
 }
 
 .header {
