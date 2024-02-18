@@ -3,11 +3,13 @@
         "@tsconfig/node18/tsconfig.json",
         "@vue/tsconfig/tsconfig.json"
     ],
+    "compilerOptions": {
+        "allowImportingTsExtensions": true,
+    },
     "include": [
         "**/*"
     ],
     "exclude": [
         "theme",
-        "theme.backup"
     ]
 }

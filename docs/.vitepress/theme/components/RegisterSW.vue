@@ -1,0 +1,75 @@
+<script setup lang="ts">
+import { VPButton } from 'vitepress/theme';
+import { onBeforeMount, ref } from 'vue'
+
+const offlineReady = ref(false)
+const needRefresh = ref(false)
+
+let updateServiceWorker: (() => Promise<void>) | undefined
+
+function onOfflineReady() {
+  offlineReady.value = true
+}
+function onNeedRefresh() {
+  needRefresh.value = true
+}
+async function close() {
+  offlineReady.value = false
+  needRefresh.value = false
+}
+
+onBeforeMount(async () => {
+  // @ts-expect-error
+  const { registerSW } = await import('virtual:pwa-register')
+  updateServiceWorker = registerSW({
+    immediate: true,
+    onOfflineReady,
+    onNeedRefresh,
+    onRegistered() {
+      console.info('Service Worker registered')
+    },
+    onRegisterError(e: Error) {
+      console.error('Service Worker registration error!', e)
+    },
+  })
+})
+</script>
+
+<template>
+  <template v-if="offlineReady">
+    <div class="pwa-toast" role="alertdialog" aria-labelledby="pwa-message">
+      <div id="pwa-message">
+        {{ offlineReady ? '文档已准备好在离线模式下查看' : '有新的内容可用，点击刷新按钮来更新。' }}
+      </div>
+      <VPButton v-if="needRefresh" theme="alt" text="刷新" @click="updateServiceWorker" />
+      <VPButton theme="alt" text="关闭" @click="close" />
+    </div>
+  </template>
+</template>
+
+<style>
+.pwa-toast {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 16px;
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  z-index: 100;
+  text-align: left;
+  box-shadow: var(--vp-shadow-3);
+  background-color: var(--vp-c-bg);
+}
+
+.pwa-toast #pwa-message {
+  margin-bottom: 12px;
+}
+
+.VPButton {
+  border-radius: 0.4rem !important;
+  line-height: 1.5 !important;
+  padding: 0.375rem 1.5rem !important;
+  width: 100%;
+}
+</style>

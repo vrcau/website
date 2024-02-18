@@ -4,6 +4,16 @@ export const zhCmnHansCN = defineConfig({
   title: "VRChat 航空航天大学",
   description: "一个兴趣使然的 VRChat 航空航天社团。",
 
+  markdown: {
+    container: {
+      tipLabel: "提示",
+      warningLabel: "警告",
+      dangerLabel: "危险",
+      infoLabel: "信息",
+      detailsLabel: "详细信息",
+    },
+  },
+
   themeConfig: {
     nav: [
       {
@@ -16,7 +26,38 @@ export const zhCmnHansCN = defineConfig({
       },
       {
         text: "项目",
-        link: "/projects/",
+        items: [
+          {
+            text: "所有项目",
+            link: "/projects/",
+          },
+          {
+            text: "机模",
+            items: [
+              {
+                text: "V320 - Sacc",
+                link: "/projects/vau320-sacc/",
+              },
+              {
+                text: "V320 - FDMi",
+                link: "/projects/vau320-fdmi/",
+              },
+              {
+                text: "初教 6（CJ6）",
+                link: "/projects/cj6/",
+              },
+            ],
+          },
+          {
+            text: "基础设施",
+            items: [
+              {
+                text: "FlatRadar",
+                link: "/projects/flatradar/",
+              },
+            ],
+          },
+        ],
       },
       {
         text: "AIS",

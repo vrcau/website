@@ -1,7 +1,10 @@
 {
     "extends": "@vue/tsconfig/tsconfig.dom.json",
     "compilerOptions": {
-        "allowImportingTsExtensions": true
+        "allowImportingTsExtensions": true,
+        "types": [
+            "vite-plugin-pwa/client"
+        ],
     },
     "include": [
         "docs",
