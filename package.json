@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "packageManager": "yarn@4.1.0",
+  "type": "module",
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^20.11.19",
+    "@vue/tsconfig": "^0.5.1",
+    "vitepress": "^1.0.0-rc.42"
+  }
+}

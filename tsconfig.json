@@ -1,0 +1,14 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "compilerOptions": {
+        "allowImportingTsExtensions": true
+    },
+    "include": [
+        "docs",
+    ],
+    "exclude": [
+        "node_modules",
+        ".vitepress",
+        ".yarn"
+    ]
+}
