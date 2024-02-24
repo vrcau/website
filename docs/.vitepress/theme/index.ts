@@ -7,6 +7,8 @@ import RegisterSW from "./components/RegisterSW.vue"
 import NotamsHome from "./components/NotamsHome.vue"
 import SiteHome from "./components/SiteHome.vue"
 
+import "./css/page.less"
+
 const customTheme: Theme = {
   extends: DefaultTheme,
   enhanceApp({ app }) {

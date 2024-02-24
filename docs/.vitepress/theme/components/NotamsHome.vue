@@ -82,7 +82,7 @@ function resetFilter() {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .filter-options {
   margin-bottom: 1rem;
   display: flex;

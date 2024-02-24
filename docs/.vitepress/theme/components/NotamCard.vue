@@ -12,26 +12,26 @@ defineProps<{
 </script>
 
 <template>
-  <a :href="url">
-    <div class="notam-card">
-      <div class="notam-card-banner">
-        <img src="/images/banner.gif" />
+  <a :href="url" class="notam-card">
+    <div class="notam-card-banner">
+      <img src="/images/banner.gif" />
+    </div>
+    <div class="notam-card-content">
+      <div class="notam-card-badge">
+        <VPBadge v-if="pin" text="顶置" />
+        <VPBadge type="info" :text="category" />
+        <VPBadge v-if="tag" type="info" :text="tag" />
       </div>
-      <div class="notam-card-content">
-        <div class="notam-card-badge">
-          <VPBadge v-if="pin" text="顶置" />
-          <VPBadge type="info" :text="category" />
-          <VPBadge v-if="tag" type="info" :text="tag" />
-        </div>
-        <h2 :href="url">{{ title }}</h2>
-        <p>{{ description }}</p>
-      </div>
+      <h2 :href="url">{{ title }}</h2>
+      <p>{{ description }}</p>
     </div>
   </a>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .notam-card {
+  display: block;
+
   background-color: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;
