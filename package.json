@@ -8,10 +8,10 @@
   "type": "module",
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
-    "@types/node": "^20.11.19",
+    "@types/node": "^20.11.20",
     "@vite-pwa/vitepress": "^0.4.0",
     "@vue/tsconfig": "^0.5.1",
     "vite-plugin-pwa": "^0.19.0",
-    "vitepress": "^1.0.0-rc.42"
+    "vitepress": "1.0.0-rc.44"
   }
 }
